@@ -1,0 +1,40 @@
+<div class="bg-white p-16 rounded shadow-lg modal-container" resizable="true">
+  <mat-dialog-content class="grid grid-cols-2 gap-4 modal-content">
+    <div>
+      <img
+        [src]="data.book.image_link"
+        alt="{{ data.book.title }}"
+        class="h-96 mx-auto"
+      />
+    </div>
+    <div class="flex flex-col justify-between">
+      <div class="leading-normal">
+        <h2 class="font-bold text-4xl mb-2">{{ data.book.title }}</h2>
+        <div class="Stars" style="--rating: 4;" ></div>
+        <p class="text-2xl"><strong>Rating:</strong> {{ data.book.rating }}</p>
+
+        <p class="text-2xl"><strong>Author:</strong> {{ data.book.author }}</p>
+        <p class="text-2xl"><strong>Year:</strong> {{ data.book.year }}</p>
+        <p class="text-1xl">
+          <strong>Description:</strong> {{ data.book.description }}
+        </p>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="justify-end"
+    ><div class="mt-4 p-2 mx-auto w-1/2 h-full">
+      <button
+        class="border-none"
+        mat-button
+        color="primary"
+        (click)="addToCart()"
+      >
+        Add to Cart
+      </button>
+    </div>
+    <div class="mt-4 mx-auto w-1/2 h-full">
+      <button class="border-none" mat-button (click)="onClose()">Close</button>
+    </div>
+  </mat-dialog-actions>
+</div>

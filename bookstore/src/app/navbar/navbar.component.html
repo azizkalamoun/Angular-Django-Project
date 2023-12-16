@@ -1,0 +1,37 @@
+<nav class=" fixed top-0 bg-gray-200 z-40 px-36 w-full   py-6 shadow-lg opacity-50 hover:opacity-100 transition-opacity 300ms ease-in-out">
+  <ul class="flex w-11/12 justify-end text-xl font-medium">
+    <li class="inline mr-16">
+      <a
+        class="hover:text-zinc-950 hover:font-semibold"
+        routerLink="/home"
+        routerLinkActive="active"
+        >Home</a
+      >
+    </li>
+    <li class="inline mr-16">
+      <a
+        class="hover:text-zinc-950 hover:font-semibold"
+        routerLink="/book"
+        routerLinkActive="active"
+        >Collection</a
+      >
+    </li>
+    <li class="inline mr-16">
+      <a
+        class="hover:text-zinc-950 hover:font-semibold"
+        routerLink="/cart"
+        routerLinkActive="active"
+        >Cart</a
+      >
+    </li>
+  </ul>
+  <div class="absolute text-xl top-6 right-4">
+  <div *ngIf="isLoggedIn(); else loginLink">
+    <button (click)="authService.logout()">Logout</button>
+  </div>
+  <ng-template #loginLink>
+    <a routerLink="/login">Sign In</a>
+</ng-template>
+
+  </div>
+</nav>

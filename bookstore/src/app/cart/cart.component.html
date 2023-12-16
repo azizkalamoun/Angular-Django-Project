@@ -1,0 +1,5 @@
+<div *ngIf="cartItems.length > 0; else noItems">
+  </div>
+  <ng-template #noItems>
+    <p>Your cart is empty. <a routerLink="/login">Log in</a> to add items.</p>
+  </ng-template>

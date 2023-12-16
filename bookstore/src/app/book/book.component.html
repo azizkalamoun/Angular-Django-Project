@@ -1,0 +1,40 @@
+<h1 class="mt-40 mb-1 mx-auto w-fit text-5xl font-semibold">EXPLORE OUR COLLECTION</h1>
+<div class="mt-10 mx-auto w-fit">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search" class="p-2  mr-2 border rounded-md border-black"/>
+  <select [(ngModel)]="selectedCategory" (change)="onCategoryChange($event)" class="p-2.5 mr-2 border rounded-md border-black">
+    <option [ngValue]="null" disabled selected>Select Category</option>
+    <option *ngFor="let category of categories" [value]="category">
+      {{ category }}
+    </option>
+  </select>
+  <button (click)="onSearch()">Search</button>
+  <button (click)="resetPage()" class="ml-2 align-sub	"><img width="20" height="20" src="https://img.icons8.com/ios/50/recurring-appointment.png" alt="recurring-appointment"/></button>
+</div>
+
+<div class="grid grid-cols-3 md:grid-cols-5 gap-4 w-10/12 m-auto mt-24">
+  <a
+    *ngFor="let book of books"
+    class="rounded-md relative flex justify-center items-center    overflow-hidden group hover:cursor-pointer shadow-lg shadow-gray-500 h-96"
+     (click)="openModal(book)"
+  >
+    <img
+      class="z-0 mx-auto items-center absolute object-cover w-fit h-full"
+      [src]="book.image_link"
+      alt=""
+    />
+    <div
+      class="absolute text-center z-50 px-5 py-8 text-black -bottom-2 group-hover:-translate-y-0.5 translate-y-full left-0 bg-white w-full h-fit transition ease-in-out delay-400"
+    >
+      <p class="font-semibold text-lg">{{ book.title }}</p>
+      <p>{{ book.author }}</p>
+      <p>{{ book.year }}</p>
+    </div>
+  </a>
+</div>
+
+<mat-paginator class="mt-4 mr-28"
+  [pageSizeOptions]="[10, 20, 30, 40, 50]"
+  [pageSize]="pageSize"
+  [length]="totalBooks"
+  (page)="onPageChange($event)"
+></mat-paginator>

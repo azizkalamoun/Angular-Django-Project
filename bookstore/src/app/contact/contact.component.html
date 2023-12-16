@@ -1,0 +1,16 @@
+<!-- contact.component.html -->
+<div>
+    <h1>Contact Us</h1>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" [(ngModel)]="subject" required>
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" [(ngModel)]="message" required></textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  
